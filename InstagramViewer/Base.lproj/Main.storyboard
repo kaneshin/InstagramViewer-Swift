@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="I15-eb-c1m">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Media List Controller-->
+        <scene sceneID="6EK-XT-du8">
+            <objects>
+                <tableViewController id="dCK-Zi-7uq" customClass="MediaListController" customModule="InstagramViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pke-wk-E5f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="1iy-cP-hXm" customClass="MediaListCell" customModule="InstagramViewer" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iy-cP-hXm" id="Aa1-QV-2gG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="s5m-zt-qLm" kind="show" identifier="showDetail" id="Z4w-5R-q64"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dCK-Zi-7uq" id="yoZ-Mt-2uO"/>
+                            <outlet property="delegate" destination="dCK-Zi-7uq" id="1Je-SN-jQi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ONd-Xm-a0s"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfZ-P4-MzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="6"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="7sI-Ca-xLt">
+            <objects>
+                <viewController id="s5m-zt-qLm" customClass="DetailViewController" customModule="InstagramViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f5U-b7-EcE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mei-Hh-iiA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dkx-yy-Isk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XF3-gY-Vv8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XF3-gY-Vv8" secondAttribute="trailing" constant="-16" id="ERd-4C-40w"/>
+                            <constraint firstItem="XF3-gY-Vv8" firstAttribute="leading" secondItem="Dkx-yy-Isk" secondAttribute="leadingMargin" constant="-16" id="Ry4-S3-X5e"/>
+                            <constraint firstItem="Mei-Hh-iiA" firstAttribute="top" secondItem="XF3-gY-Vv8" secondAttribute="bottom" id="aek-gE-6eF"/>
+                            <constraint firstItem="XF3-gY-Vv8" firstAttribute="top" secondItem="f5U-b7-EcE" secondAttribute="bottom" constant="-64" id="amb-fH-ehh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="XF3-gY-Vv8" id="Ott-d2-HgW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aMi-fP-jhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281" y="6"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IrE-RI-j9a">
+            <objects>
+                <navigationController id="I15-eb-c1m" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2O7-io-vaR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dCK-Zi-7uq" kind="relationship" relationship="rootViewController" id="PzP-Q6-jTV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6L-I4-Lwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-366" y="6"/>
+        </scene>
+    </scenes>
+</document>
